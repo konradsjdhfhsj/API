@@ -73,12 +73,11 @@ if (isset($danen['cod']) && $danen['cod'] != 200) {
     echo "<p>Błąd: " . htmlspecialchars($danen['message']) . "</p>";
 } else {
     $dailyData = [];
-    $today = date("Y-m-d"); // Dzisiejsza data
+    $today = date("Y-m-d"); 
 
     foreach ($danen['list'] as $forecast) {
         $date = date("Y-m-d", $forecast['dt']);
         
-        // Pomijamy dzisiejszą prognozę, zaczynamy od jutra
         if ($date <= $today) {
             continue;
         }
